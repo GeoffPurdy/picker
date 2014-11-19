@@ -1,0 +1,20 @@
+<Alloy>
+	<Window class="container">
+		<Label id="label" onClick="doClick">Hello, World</Label>
+		<Picker id="picker" top="50" selectionIndicator="true" useSpinner="true">
+            <PickerColumn id="column1">
+                <PickerRow title="Bananas"/>
+                <PickerRow title="Strawberries"/>
+                <PickerRow title="Mangos"/>
+                <PickerRow title="Grapes"/>
+            </PickerColumn>
+            <!-- Picker shorthand notation -->
+            <Column id="column2">
+                <Row title="red"/>
+                <Row title="green"/>
+                <Row title="blue"/>
+                <Row title="orange"/>
+            </Column>
+        </Picker>
+	</Window>
+</Alloy>
