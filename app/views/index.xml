@@ -1,7 +1,6 @@
 <Alloy>
 	<Window class="container">
-		<Label id="label" onClick="doClick">Hello, World</Label>
-		<Picker id="picker" top="50" selectionIndicator="true" useSpinner="true">
+ 		<Picker id="picker" top="50" selectionIndicator="true" useSpinner="true">
             <PickerColumn id="column1">
                 <PickerRow title="A"/>
                 <PickerRow title="B"/>
@@ -313,6 +312,8 @@
                 <PickerRow title="Z"/>
             </PickerColumn> 
         </Picker>
-
+        <WebView id="webview" url="http://www.dictionaryapi.com/api/v1/references/sd2/xml/accelerate?key=7a504103-e56f-4392-96f0-0bf3c6f7eb52" />
+        
+        
 	</Window>
 </Alloy>
