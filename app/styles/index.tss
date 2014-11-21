@@ -1,7 +1,15 @@
 ".container": {
-	backgroundColor:"white"
+	backgroundColor: "white"
 }
 
-"#webview": {
-	top: 450
+"#wordview": {
+    width: '50%'
+}
+
+"#word": {
+	textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT
+}
+
+"#definition": {
+	textAlign: Ti.UI.TEXT_ALIGNMENT_RIGHT
 }
