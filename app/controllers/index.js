@@ -1,13 +1,16 @@
 $.index.open();
+var selected;
+
 // $.picker getSelectedColumns getSelectedRow title
 $.picker.addEventListener('change',function(e) {
-	var selected =  e.selectedValue.join('');
+	selected =  e.selectedValue.join('');
+	$.definition.text = selected;
 	Ti.API.info( selected );
 //    Ti.API.info("You selected row: "+e.row+", column: "+e.column+", custom_item: "+e.row.custom_item);
 //    label.text = "row index: "+e.rowIndex+", column index: "+e.columnIndex;
 });
 
-var url = "http://www.dictionaryapi.com/api/v1/references/sd2/xml/accelerate?key=7a504103-e56f-4392-96f0-0bf3c6f7eb52";
+var url = "http://www.dictionaryapi.com/api/v1/references/sd2/xml/" + selected + "?key=7a504103-e56f-4392-96f0-0bf3c6f7eb52";
 
 
 
