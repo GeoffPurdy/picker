@@ -115,7 +115,7 @@
             </PickerColumn> 
         </Picker>
         <View id="wordview">
-          <Label id="definition">definition</Label>
+         <Label id="definition">definition</Label>
         </View>
 	</Window>
 </Alloy>

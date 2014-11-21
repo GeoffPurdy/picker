@@ -2,14 +2,22 @@
 	backgroundColor: "white"
 }
 
+"#picker": {
+	backgroundColor: "yellow"
+}
+
 "#wordview": {
-    width: '50%'
+	top: 300,
+    width: '50%',
+    backgroundColor: "pink"
 }
 
 "#word": {
-	textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT
+	textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
+	backgroundColor: "green"
 }
 
 "#definition": {
-	textAlign: Ti.UI.TEXT_ALIGNMENT_RIGHT
+	textAlign: Ti.UI.TEXT_ALIGNMENT_RIGHT,
+	backgroundColor: "gray"
 }
