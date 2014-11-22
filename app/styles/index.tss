@@ -4,12 +4,13 @@
 
 "#picker": {
 	top: 150,
-	backgroundColor: "orange"
+	backgroundColor: "orange",
+	width: Titanium.UI.FILL
 }
 
 "#button": {
-	top: 240,
-	right: 120,
+	top: 400,
+	right: '50%',
     width: 30,
     height: 30,
     backgroundImage: "raised-button.png"
