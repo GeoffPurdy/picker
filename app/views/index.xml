@@ -1,7 +1,7 @@
 <Alloy>
 	<Window class="container">
         <Label id="info"></Label>
-        <Label id="score">30</Label>
+        <Label id="score">0</Label>
  		<Picker id="picker" selectionIndicator="true" useSpinner="true">
             <PickerColumn id="column1">
                 <PickerRow title="A"/>

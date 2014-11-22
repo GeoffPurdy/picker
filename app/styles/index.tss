@@ -8,12 +8,11 @@
 }
 
 "#button": {
-	top: 230,
+	top: 240,
 	right: 120,
-    width: 50,
-    height: 50,
-    backgroundImage: "thin-check.png",
-    backgroundColor: "pink"
+    width: 30,
+    height: 30,
+    backgroundImage: "raised-button.png"
 }
 
 "#word": {
