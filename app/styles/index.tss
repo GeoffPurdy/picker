@@ -3,59 +3,28 @@
 }
 
 "#picker": {
-	top: 150,
-	backgroundColor: "orange",
+	top: '10%',
 	width: Titanium.UI.FILL
 }
 
 "#button": {
-	top: 400,
+	top: '10%',
 	right: '50%',
     width: 30,
     height: 30,
     backgroundImage: "raised-button.png"
 }
 
-"#word": {
-	textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
-	backgroundColor: "green"
-}
-
 "#definition": {
 	textAlign: Ti.UI.TEXT_ALIGNMENT_RIGHT,
-	backgroundColor: "yellow",
 	width: '50%'
 }
 
-"#info": {
-	width:400,
-	height:50,
-    color: 'gray',
-    top:20,
-    left:0,
-    textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
-    backgroundColor: 'blue',
-    font: {
-        fontFamily:'Helvetica',
-        fontSize: '44dp',
-        fontStyle: 'normal',
-        fontWeight: 'normal'
-    }	
-}
-
 "#score": {
-	width:100,
-	height:50,
+	width:'10%',
+	height:'5%',
     color: 'gray',
     top:20,
-    left:650,
-    textAlign: Ti.UI.TEXT_ALIGNMENT_RIGHT,
-    backgroundColor: 'red',
-    font: {
-        fontFamily:'Helvetica',
-        fontSize: '44dp',
-        fontStyle: 'normal',
-        fontWeight: 'normal'
-    }	
-	
+    left:'80%',
+    textAlign: Ti.UI.TEXT_ALIGNMENT_RIGHT,	
 }

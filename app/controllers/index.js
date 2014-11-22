@@ -1,10 +1,11 @@
 $.index.open();
+var NUM_COLS = 4;
 var selected;
 
 var letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split('');
 var new_column = Ti.UI.createPickerColumn();
 
-for(var j=0;j<14;j++) { // FIXME words greater than 14 letters drop the last picker column off screen
+for(var j=0;j<NUM_COLS;j++) { // FIXME words greater than 14 letters drop the last picker column off screen
 
 	for (var i = 0; i < letters.length; i++) {
 		var row = Ti.UI.createPickerRow();
@@ -14,7 +15,6 @@ for(var j=0;j<14;j++) { // FIXME words greater than 14 letters drop the last pic
     $.picker.add(new_column);
 }
 
-
 $.picker.addEventListener('change',function(e) {
 	selected =  e.selectedValue.join('');
 	Ti.API.info( selected );
@@ -22,22 +22,24 @@ $.picker.addEventListener('change',function(e) {
 //    label.text = "row index: "+e.rowIndex+", column index: "+e.columnIndex;
 });
 
-
 var xhr = Ti.Network.createHTTPClient({
     onload: function(e) {
         Ti.API.debug(this.responseText);
         var doc = this.responseXML.documentElement;
         // The following is ugly and requires explanation so here goes:
         // API is shitty and this is a work around
-        // API returns '200 OK' with a list of suggestions if word is NOT found
-        // existence of suggestions means word wasn't found
+        // API returns '200 OK' even if word is NOT found
+        // returns suggestions that look just like definitions
+        // existence of suggestion nodes means word wasn't found
         // or a '200 OK' and an empty list if nothing remotely similar exists 
         // work around by looking for suggestions and treating as word not found if present
         var suggestions = doc.getElementsByTagName("suggestion");
-        if( suggestions.length > 0 || ! ! doc.getElementsByTagName("entry") ) {
+        Ti.API.info("suggestions.length=" + suggestions.length);
+        if( (suggestions.length > 0) || (! doc.getElementsByTagName("entry")) ) {
           $.definition.text = "Word doesn't exist in dictionary.";
         } 
         else {
+          Ti.API.info("good API call");
           $.definition.text = doc.getElementsByTagName("entry").item(0).getAttribute("id") + 
             ": " + doc.getElementsByTagName("pr").item(0).text +
              " " + doc.getElementsByTagName("dt").item(0).text;
@@ -53,8 +55,9 @@ var xhr = Ti.Network.createHTTPClient({
 
 
 function doClick(e){
-    Titanium.API.info("You clicked the button");
+    Titanium.API.info("You clicked the button.  Selected = " + selected);
     var url = "http://www.dictionaryapi.com/api/v1/references/sd2/xml/" + selected + "?key=7a504103-e56f-4392-96f0-0bf3c6f7eb52";
+    Ti.API.info(url)
     xhr.open("GET", url);
     xhr.send();  // request is actually sent with this statement
 };
