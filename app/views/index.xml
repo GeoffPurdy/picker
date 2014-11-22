@@ -2,7 +2,7 @@
 	<Window class="container">
         <Label id="info"></Label>
         <Label id="score">30</Label>
- 		<Picker id="picker" top="50" selectionIndicator="true" useSpinner="true">
+ 		<Picker id="picker" selectionIndicator="true" useSpinner="true">
             <PickerColumn id="column1">
                 <PickerRow title="A"/>
                 <PickerRow title="B"/>
@@ -116,6 +116,7 @@
                 <PickerRow title="Z"/>
             </PickerColumn> 
         </Picker>
+        <Button id="button" onClick="doClick" />
         <Label id="definition">definition</Label>
 	</Window>
 </Alloy>

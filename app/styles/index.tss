@@ -3,13 +3,16 @@
 }
 
 "#picker": {
-	top: 50,
-	backgroundColor: "yellow"
+	top: 150,
+	backgroundColor: "orange"
 }
 
-"#wordview": {
-	top: 300,
-    width: '50%',
+"#button": {
+	top: 230,
+	right: 120,
+    width: 50,
+    height: 50,
+    backgroundImage: "thin-check.png",
     backgroundColor: "pink"
 }
 
@@ -20,7 +23,8 @@
 
 "#definition": {
 	textAlign: Ti.UI.TEXT_ALIGNMENT_RIGHT,
-	backgroundColor: "gray"
+	backgroundColor: "yellow",
+	width: '50%'
 }
 
 "#info": {
