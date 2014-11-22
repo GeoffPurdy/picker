@@ -4,9 +4,6 @@ var selected;
 // $.picker getSelectedColumns getSelectedRow title
 $.picker.addEventListener('change',function(e) {
 	selected =  e.selectedValue.join('');
-	var url = "http://www.dictionaryapi.com/api/v1/references/sd2/xml/" + selected + "?key=7a504103-e56f-4392-96f0-0bf3c6f7eb52";
-    xhr.open("GET", url);
-    xhr.send();  // request is actually sent with this statement
 	Ti.API.info( selected );
 //    Ti.API.info("You selected row: "+e.row+", column: "+e.column+", custom_item: "+e.row.custom_item);
 //    label.text = "row index: "+e.rowIndex+", column index: "+e.columnIndex;
@@ -43,4 +40,8 @@ var xhr = Ti.Network.createHTTPClient({
 
 function doClick(e){
     Titanium.API.info("You clicked the button");
+    var url = "http://www.dictionaryapi.com/api/v1/references/sd2/xml/" + selected + "?key=7a504103-e56f-4392-96f0-0bf3c6f7eb52";
+    xhr.open("GET", url);
+    xhr.send();  // request is actually sent with this statement
+
 };
