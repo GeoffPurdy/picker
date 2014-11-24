@@ -27,7 +27,7 @@ var xhr = Ti.Network.createHTTPClient({
         Ti.API.debug(this.responseText);
         var doc = this.responseXML.documentElement;
         // The following is ugly and requires explanation so here goes:
-        // API is shitty and this is a work around
+        // API is sub-optimal and this is a work around
         // API returns '200 OK' even if word is NOT found
         // returns suggestions that look just like definitions
         // existence of suggestion nodes means word wasn't found
