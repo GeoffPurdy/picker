@@ -1,11 +1,12 @@
 $.index.open();
+
 var NUM_COLS = 4;
 var selected;
 
 var letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split('');
 var new_column = Ti.UI.createPickerColumn();
 
-for(var j=0;j<NUM_COLS;j++) { // FIXME words greater than 14 letters drop the last picker column off screen
+for(var j=0;j<NUM_COLS;j++) { // FIXME words greater than 13-14 letters drop the last picker column
 
 	for (var i = 0; i < letters.length; i++) {
 		var row = Ti.UI.createPickerRow();
@@ -57,7 +58,7 @@ var xhr = Ti.Network.createHTTPClient({
 function doClick(e){
     Titanium.API.info("You clicked the button.  Selected = " + selected);
     var url = "http://www.dictionaryapi.com/api/v1/references/sd2/xml/" + selected + "?key=7a504103-e56f-4392-96f0-0bf3c6f7eb52";
-    Ti.API.info(url)
+    Ti.API.info(url);
     xhr.open("GET", url);
     xhr.send();  // request is actually sent with this statement
 };

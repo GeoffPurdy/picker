@@ -4,7 +4,7 @@
 
 "#picker": {
 	top: '10%',
-	width: Titanium.UI.FILL
+	width: '80%'
 }
 
 "#button": {
