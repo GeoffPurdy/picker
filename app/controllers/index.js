@@ -1,16 +1,16 @@
-$.index.open();
 
-var NUM_COLS = 4;
+
+var word = "FOOL".split("");
+var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split('');
 var selected;
 
-var letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split('');
-var new_column = Ti.UI.createPickerColumn();
 
-for(var j=0;j<NUM_COLS;j++) { // FIXME words greater than 13-14 letters drop the last picker column
 
-	for (var i = 0; i < letters.length; i++) {
+for(var j=0;j<word.length;j++) { // FIXME words greater than 13-14 letters drop the last picker column
+    var new_column = Ti.UI.createPickerColumn();
+	for (var i = 0; i < alphabet.length; i++) {
 		var row = Ti.UI.createPickerRow();
-		row.title = letters[i],
+		row.title = alphabet[i],
 		new_column.addRow(row);
 	}
     $.picker.add(new_column);
@@ -57,8 +57,26 @@ var xhr = Ti.Network.createHTTPClient({
 
 function doClick(e){
     Titanium.API.info("You clicked the button.  Selected = " + selected);
-    var url = "http://www.dictionaryapi.com/api/v1/references/sd2/xml/" + selected + "?key=7a504103-e56f-4392-96f0-0bf3c6f7eb52";
+    var url = "http://www.dictionaryapi.com/api/v1/references/sd2/xml/" 
+              + selected + "?key=7a504103-e56f-4392-96f0-0bf3c6f7eb52";
     Ti.API.info(url);
     xhr.open("GET", url);
-    xhr.send();  // request is actually sent with this statement
+    xhr.send();  
 };
+
+
+$.index.addEventListener('open', function() {
+	Ti.API.info("in open event listener.");
+      for(var k=0; k<word.length; k++) {
+      	Ti.API.info("word[k]=" + word[k]);
+      	Ti.API.info("indexOf()=" + alphabet.indexOf( word[k] ));
+      	$.picker.setSelectedRow(k, alphabet.indexOf( word[k] ), false);
+      }
+      setTimeout(function(){ // FIXME this may be a race condition; 
+        $.button.fireEvent('click');
+      }, 200);
+      
+});
+ 
+
+$.index.open();
