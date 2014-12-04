@@ -1,10 +1,10 @@
 
 
 var word = "WORD".split("");
+var target = "GAME";
 var golden_path = [];
+var already_used = [];
 var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split('');
-var selected;
-
 
 
 function initPickerColumns() {
@@ -30,13 +30,6 @@ function setPickerRows() {
     $.button.fireEvent('click');
   }, 200);
 }
-
-$.picker.addEventListener('change',function(e) {
-	selected =  e.selectedValue.join('');
-	Ti.API.info( selected );
-//    Ti.API.info("You selected row: "+e.row+", column: "+e.column+", custom_item: "+e.row.custom_item);
-//    label.text = "row index: "+e.rowIndex+", column index: "+e.columnIndex;
-});
 
 var xhr = Ti.Network.createHTTPClient({
     onload: function(e) {
@@ -71,11 +64,14 @@ var xhr = Ti.Network.createHTTPClient({
 });
 
 
-function doClick(e){
-    Titanium.API.info("You clicked the button.  Selected = " + selected);
+function doClick(e){ 
     var url = "http://www.dictionaryapi.com/api/v1/references/collegiate/xml/" 
-              + selected + "?key=6561a4ac-064f-4290-80b2-4101a8085451";
+              + word + "?key=6561a4ac-064f-4290-80b2-4101a8085451";
     Ti.API.info(url);
+    if(word === target) { 
+    	alert("Ladder Complete"); 
+    	$.score.text = parseInt( $.score.text ) + 1;
+    }
     xhr.open("GET", url);
     xhr.send();  
 };
@@ -87,7 +83,7 @@ function doCreateLadder(e){
     //var n4j_url = "http://localhost:7474/db/data/cypher";
     var n4j_url = "http://0.0.0.0:3000/words/get_path.json";
     var start = $.start_word.value.toUpperCase();
-    var target = $.target_word.value.toUpperCase();
+    target = $.target_word.value.toUpperCase();
     n4j_url += "?" + "source=" + start.toLowerCase() + "&" + "target=" + target.toLowerCase();
     
     if(!start || !target || start.length != target.length) {
@@ -101,7 +97,7 @@ function doCreateLadder(e){
             Ti.API.info("dat[0].extracted=" + dat[0].extracted );
             golden_path = dat[0].extracted;  
             word = start.split("");
-            $.info.value = target;
+            $.info.text = target;
             //initPickerColumns();
             setPickerRows();
         },
@@ -119,15 +115,22 @@ function doCreateLadder(e){
 
 }
 
+// the picker has to be displayed BEFORE rows can be set
+// thus an event listener on 'open'
 $.index.addEventListener('open', function() {
   setPickerRows();      
+});
+
+$.picker.addEventListener('change',function(e) {
+	word =  e.selectedValue.join('');
 });
  
 initPickerColumns();
 $.index.open();
 $.info.animate({
-	backgroundColor:'#F00', 
-	color: 'white',
+	backgroundColor:'yellow', 
+	color: 'black',
 	duration:3000, 
-	curve:Titanium.UI.ANIMATION_CURVE_EASE_IN_OUT
+	curve:Titanium.UI.ANIMATION_CURVE_EASE_IN_OUT,
+	autoreverse: true
 });

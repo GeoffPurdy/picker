@@ -44,8 +44,9 @@
 	width:'10%',
 	height:'5%',
     color: 'gray',
+    backgroundColor: 'white',
     top:20,
     right:'80%',
-    textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,	
+    textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT	
 }
 

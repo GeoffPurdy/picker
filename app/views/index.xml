@@ -1,6 +1,6 @@
 <Alloy>
 	<Window class="container">
-        <Label id="info">GAME</Label>
+        <Label id="info"></Label>
         <Label id="score">0</Label>
         
         <View id="finder">
