@@ -2,13 +2,24 @@
 	backgroundColor: "white"
 }
 
-"#picker": {
+"#finder": {
+	layout: 'horizontal',
 	top: '10%',
+	width: '50%'
+}
+
+".input": {
+	height: "50",
+	width: "100"
+}
+
+"#picker": {
+	top: '25%',
 	width: '80%'
 }
 
 "#button": {
-	top: '10%',
+	top: '20%',
 	right: '50%',
     width: 30,
     height: 30,
@@ -28,3 +39,13 @@
     left:'80%',
     textAlign: Ti.UI.TEXT_ALIGNMENT_RIGHT,	
 }
+
+"#info": {
+	width:'10%',
+	height:'5%',
+    color: 'gray',
+    top:20,
+    right:'80%',
+    textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,	
+}
+
