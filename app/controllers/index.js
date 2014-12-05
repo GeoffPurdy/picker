@@ -1,10 +1,10 @@
 
 
-var word = "WORD".split("");
-var target = "GAME";
+var word = "word".split("");
+var target = "game";
 var golden_path = [];
 var already_used = [];
-var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split('');
+var alphabet = "abcdefghijklmnopqrstuvwxyz".split('');
 
 
 function initPickerColumns() {
@@ -68,9 +68,21 @@ function doClick(e){
     var url = "http://www.dictionaryapi.com/api/v1/references/collegiate/xml/" 
               + word + "?key=6561a4ac-064f-4290-80b2-4101a8085451";
     Ti.API.info(url);
+    Ti.API.info(golden_path.join("|"));
+    Ti.API.info( golden_path.indexOf( word ) );
+    Ti.API.info(already_used);
+    already_used.push(word);
     if(word === target) { 
     	alert("Ladder Complete"); 
     	$.score.text = parseInt( $.score.text ) + 1;
+    	golden_path = already_used = [];
+    	setInfoColor("green");
+    } 
+    else if ( golden_path.indexOf(word) >= 0 ) {
+    	setInfoColor("green");
+    } 
+    else {
+    	setInfoColor("red");
     }
     xhr.open("GET", url);
     xhr.send();  
@@ -82,8 +94,8 @@ function doCreateLadder(e){
     //var url = Ti.App.Properties.getString("SERVER_URL");
     //var n4j_url = "http://localhost:7474/db/data/cypher";
     var n4j_url = "http://0.0.0.0:3000/words/get_path.json";
-    var start = $.start_word.value.toUpperCase();
-    target = $.target_word.value.toUpperCase();
+    var start = $.start_word.value.toLowerCase();
+    target = $.target_word.value.toLowerCase();
     n4j_url += "?" + "source=" + start.toLowerCase() + "&" + "target=" + target.toLowerCase();
     
     if(!start || !target || start.length != target.length) {
@@ -115,6 +127,16 @@ function doCreateLadder(e){
 
 }
 
+function setInfoColor(color) {
+	$.info.animate({
+	  backgroundColor:color, 
+	  color: 'black',
+	  duration:3000, 
+	  curve:Titanium.UI.ANIMATION_CURVE_EASE_IN_OUT,
+	  autoreverse: true
+    });
+}
+
 // the picker has to be displayed BEFORE rows can be set
 // thus an event listener on 'open'
 $.index.addEventListener('open', function() {
@@ -127,10 +149,4 @@ $.picker.addEventListener('change',function(e) {
  
 initPickerColumns();
 $.index.open();
-$.info.animate({
-	backgroundColor:'yellow', 
-	color: 'black',
-	duration:3000, 
-	curve:Titanium.UI.ANIMATION_CURVE_EASE_IN_OUT,
-	autoreverse: true
-});
+
