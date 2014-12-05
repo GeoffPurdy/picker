@@ -72,7 +72,8 @@ function doClick(e){
     Ti.API.info( golden_path.indexOf( word ) );
     Ti.API.info(already_used);
     already_used.push(word);
-    if(word === target) { 
+    $.steps.text = parseInt( $.steps.text ) + 1;
+    if(word === target) {  
     	alert("Ladder Complete"); 
     	$.score.text = parseInt( $.score.text ) + 1;
     	golden_path = already_used = [];
@@ -110,6 +111,8 @@ function doCreateLadder(e){
             golden_path = dat[0].extracted;  
             word = start.split("");
             $.info.text = target;
+            $.optimal.text = golden_path.length;
+            $.steps.text = already_used.length;
             //initPickerColumns();
             setPickerRows();
         },
@@ -128,7 +131,7 @@ function doCreateLadder(e){
 }
 
 function setInfoColor(color) {
-	$.info.animate({
+	$.steps.animate({
 	  backgroundColor:color, 
 	  color: 'black',
 	  duration:3000, 

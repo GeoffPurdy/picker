@@ -1,6 +1,8 @@
 <Alloy>
 	<Window class="container">
         <Label id="info"></Label>
+        <Label id="steps">0</Label>
+        <Label id="optimal">0</Label>
         <Label id="score">0</Label>
         
         <View id="finder">

@@ -2,6 +2,44 @@
 	backgroundColor: "white"
 }
 
+
+"#score": {
+	width:'10%',
+	height:'5%',
+    color: 'gray',
+    top:20,
+    left:'80%',
+    textAlign: Ti.UI.TEXT_ALIGNMENT_RIGHT,	
+}
+
+"#steps": {
+	width:'10%',
+	height:'5%',
+    color: 'gray',
+    backgroundColor: 'white',
+    top:20,
+    left:'60%',
+    textAlign: Ti.UI.TEXT_ALIGNMENT_RIGHT,	
+}
+
+"#optimal": {
+	width:'10%',
+	height:'5%',
+    color: 'gray',
+    top:20,
+    right:'60%',
+    textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,	
+}
+
+"#info": {
+	width:'10%',
+	height:'5%',
+    color: 'gray',
+    top:20,
+    right:'80%',
+    textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT	
+}
+
 "#finder": {
 	layout: 'horizontal',
 	top: '10%',
@@ -30,23 +68,3 @@
 	textAlign: Ti.UI.TEXT_ALIGNMENT_RIGHT,
 	width: '50%'
 }
-
-"#score": {
-	width:'10%',
-	height:'5%',
-    color: 'gray',
-    top:20,
-    left:'80%',
-    textAlign: Ti.UI.TEXT_ALIGNMENT_RIGHT,	
-}
-
-"#info": {
-	width:'10%',
-	height:'5%',
-    color: 'gray',
-    backgroundColor: 'white',
-    top:20,
-    right:'80%',
-    textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT	
-}
-
