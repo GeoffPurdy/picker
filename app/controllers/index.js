@@ -145,4 +145,5 @@ $.picker.addEventListener('change',function(e) {
  
 initPickerColumns();
 $.index.open();
+alert('To play the game you change the word displayed on the picker a single letter at a time to form a new word.  Your goal is to get to the word displayed at the top without using up all your remaining moves.')
 
