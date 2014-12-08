@@ -4,7 +4,7 @@
         <Label id="score">0</Label>
         <Label id="moves_label">Remaining:</Label>
         <Label id="moves">1</Label>
-        <Label id="info"></Label>
+        <Label id="info">word</Label>
  		<Picker id="picker" selectionIndicator="true" useSpinner="true"/>
         <Button id="button" onClick="doClick" />
         <Label id="definition">definition</Label>

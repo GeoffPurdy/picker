@@ -1,7 +1,6 @@
 
 
-var word = "word".split("");
-var target = "game";
+var word = "game".split("");
 var golden_path = [];
 var already_used = [];
 var alphabet = "abcdefghijklmnopqrstuvwxyz".split('');
@@ -74,11 +73,12 @@ function doClick(e){
     Ti.API.info(already_used);
     already_used.push(word);
     $.moves.text = parseInt( $.moves.text ) - 1;
-    if(word === target) {  
+    if(word === $.info.text) {  
     	alert("Ladder Complete"); 
     	$.score.text = parseInt( $.score.text ) + 1;
     	golden_path = already_used = [];
     	setInfoColor("green");
+    	doCreateLadder();
     } 
     else if ( golden_path.indexOf(word) >= 0 ) {
     	setInfoColor("green");
@@ -91,7 +91,7 @@ function doClick(e){
 };
 
 
-function doCreateLadder(e){
+function doCreateLadder(){
     Titanium.API.info("You clicked the create button.");
     //var url = Ti.App.Properties.getString("SERVER_URL");
     //var n4j_url = "http://localhost:7474/db/data/cypher";
