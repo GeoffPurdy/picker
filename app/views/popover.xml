@@ -1,10 +1,10 @@
 <Alloy>
-    <Popover height='100' width='250'>
+    <Popover height='auto' width='auto' id="popover">
         <ContentView>
             <NavigationWindow>
-                <Window title='Kermit' backgroundColor='green'>
-                    <RightNavButton onClick="closePopover" title="Robin" />
-                     <Label>It's not easy being green.</Label>
+                <Window id="welcome" title="Welcome">
+                    <RightNavButton onClick="closePopover" title="Close" />
+                     <Label width='50%'>'To play the game you change the word displayed on the picker a single letter at a time to form a new word.  Your goal is to get to the word displayed at the top without using up all your remaining moves.</Label>
                 </Window>
             </NavigationWindow>
         </ContentView>

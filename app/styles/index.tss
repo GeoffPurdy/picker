@@ -6,7 +6,7 @@
 	width:'15%',
 	height:'5%',
     color: 'gray',
-    top:20,
+    top:30,
     left:'80%',
     textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
 }
@@ -15,7 +15,7 @@
 	width:'15%',
 	height:'5%',
     color: 'gray',
-    top:20,
+    top:30,
     right:'80%',
     textAlign: Ti.UI.TEXT_ALIGNMENT_RIGHT,
 }
@@ -24,7 +24,7 @@
 	width:'10%',
 	height:'5%',
     color: 'gray',
-    top:20,
+    top:30,
     left:'60%',
     textAlign: Ti.UI.TEXT_ALIGNMENT_RIGHT, 
 }
@@ -34,7 +34,7 @@
 	height:'5%',
     color: 'gray',
     backgroundColor: 'white',
-    top:20,
+    top:30,
     right:'60%',
     textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
 }
@@ -58,7 +58,7 @@
 
 "#button": {
 	top: '80%',
-	right: '50%',
+	right: '45%',
     width: 80,
     height: 80,
     backgroundImage: "thin-check.png"
@@ -68,5 +68,5 @@
 	textAlign: Ti.UI.TEXT_ALIGNMENT_RIGHT,
 	top:  '67%',
 	width:'50%',
-	visible: 'false'
+	visible: 'true'
 }

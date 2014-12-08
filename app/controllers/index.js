@@ -55,6 +55,7 @@ function doClick(e){
           $.definition.text = doc.getElementsByTagName("entry").item(0).getAttribute("id") + 
             ": " + doc.getElementsByTagName("pr").item(0).text +
              " " + doc.getElementsByTagName("dt").item(0).text;
+          $.definition.text = $.definition.text.replace(/\[.*?\]/g,'');
         }
     },
     onerror: function(e) {
@@ -132,6 +133,11 @@ function setInfoColor(color) {
     });
 }
 
+function openPopover() {
+    var popover = Alloy.createController('popover').getView();
+    popover.show({view:$.button});
+};
+
 // the picker has to be displayed BEFORE rows can be set
 // thus an event listener on 'open'
 $.index.addEventListener('open', function() {
@@ -145,5 +151,4 @@ $.picker.addEventListener('change',function(e) {
  
 initPickerColumns();
 $.index.open();
-alert('To play the game you change the word displayed on the picker a single letter at a time to form a new word.  Your goal is to get to the word displayed at the top without using up all your remaining moves.')
-
+openPopover();

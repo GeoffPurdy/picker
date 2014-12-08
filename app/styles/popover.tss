@@ -1,0 +1,5 @@
+"#welcome": {
+  height: '80%',
+  width:  '80%',
+  font:{ fontSize:20, fontFamily:'Helvetica Nue' }
+}
