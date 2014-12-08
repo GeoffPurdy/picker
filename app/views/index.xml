@@ -1,16 +1,10 @@
 <Alloy>
 	<Window class="container">
-        <Label id="info"></Label>
-        <Label id="steps">0</Label>
-        <Label id="optimal">0</Label>
+        <Label id="score_label">Score:</Label>
         <Label id="score">0</Label>
-        
-        <View id="finder">
-          <TextField id="start_word" class="input" hintText="Starting Word" ></TextField>
-          <TextField id="target_word" class="input" hintText="Ending Word" ></TextField>
-          <Button class="input" id="create" onClick="doCreateLadder">Create</Button>
-        </View>
-
+        <Label id="moves_label">Remaining:</Label>
+        <Label id="moves">1</Label>
+        <Label id="info"></Label>
  		<Picker id="picker" selectionIndicator="true" useSpinner="true"/>
         <Button id="button" onClick="doClick" />
         <Label id="definition">definition</Label>

@@ -31,7 +31,10 @@ function setPickerRows() {
   }, 200);
 }
 
-var xhr = Ti.Network.createHTTPClient({
+
+function doClick(e){ 
+	
+	var xhr = Ti.Network.createHTTPClient({
     onload: function(e) {
         Ti.API.debug(this.responseText);
         var doc = this.responseXML.documentElement;
@@ -61,10 +64,8 @@ var xhr = Ti.Network.createHTTPClient({
         alert('error');
     },
     timeout:5000  /* in milliseconds */
-});
+    });
 
-
-function doClick(e){ 
     var url = "http://www.dictionaryapi.com/api/v1/references/collegiate/xml/" 
               + word + "?key=6561a4ac-064f-4290-80b2-4101a8085451";
     Ti.API.info(url);
@@ -72,7 +73,7 @@ function doClick(e){
     Ti.API.info( golden_path.indexOf( word ) );
     Ti.API.info(already_used);
     already_used.push(word);
-    $.steps.text = parseInt( $.steps.text ) + 1;
+    $.moves.text = parseInt( $.moves.text ) - 1;
     if(word === target) {  
     	alert("Ladder Complete"); 
     	$.score.text = parseInt( $.score.text ) + 1;
@@ -94,25 +95,16 @@ function doCreateLadder(e){
     Titanium.API.info("You clicked the create button.");
     //var url = Ti.App.Properties.getString("SERVER_URL");
     //var n4j_url = "http://localhost:7474/db/data/cypher";
-    var n4j_url = "http://0.0.0.0:3000/words/get_path.json";
-    var start = $.start_word.value.toLowerCase();
-    target = $.target_word.value.toLowerCase();
-    n4j_url += "?" + "source=" + start.toLowerCase() + "&" + "target=" + target.toLowerCase();
-    
-    if(!start || !target || start.length != target.length) {
-    	alert("Start word and end word must be present and equal length!");
-    	return;
-    }
+    var n4j_url = "http://0.0.0.0:3000/words/get_random_path.json?length=4";  
     
     var n4j = Ti.Network.createHTTPClient({
         onload : function(e) {
             var dat = JSON.parse( this.responseText );
             Ti.API.info("dat[0].extracted=" + dat[0].extracted );
             golden_path = dat[0].extracted;  
-            word = start.split("");
-            $.info.text = target;
-            $.optimal.text = golden_path.length;
-            $.steps.text = already_used.length;
+            word = golden_path[0].split("");
+            $.info.text = golden_path[ golden_path.length - 1 ];
+            $.moves.text = golden_path.length;
             //initPickerColumns();
             setPickerRows();
         },
@@ -131,7 +123,7 @@ function doCreateLadder(e){
 }
 
 function setInfoColor(color) {
-	$.steps.animate({
+	$.moves.animate({
 	  backgroundColor:color, 
 	  color: 'black',
 	  duration:3000, 
@@ -143,7 +135,8 @@ function setInfoColor(color) {
 // the picker has to be displayed BEFORE rows can be set
 // thus an event listener on 'open'
 $.index.addEventListener('open', function() {
-  setPickerRows();      
+  setPickerRows();
+  doCreateLadder();      
 });
 
 $.picker.addEventListener('change',function(e) {

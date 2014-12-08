@@ -2,69 +2,71 @@
 	backgroundColor: "white"
 }
 
-
 "#score": {
-	width:'10%',
+	width:'15%',
 	height:'5%',
     color: 'gray',
     top:20,
     left:'80%',
-    textAlign: Ti.UI.TEXT_ALIGNMENT_RIGHT,	
+    textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
 }
 
-"#steps": {
+"#moves_label": {
+	width:'15%',
+	height:'5%',
+    color: 'gray',
+    top:20,
+    right:'80%',
+    textAlign: Ti.UI.TEXT_ALIGNMENT_RIGHT,
+}
+
+"#score_label": {
+	width:'10%',
+	height:'5%',
+    color: 'gray',
+    top:20,
+    left:'60%',
+    textAlign: Ti.UI.TEXT_ALIGNMENT_RIGHT, 
+}
+
+"#moves": {
 	width:'10%',
 	height:'5%',
     color: 'gray',
     backgroundColor: 'white',
     top:20,
-    left:'60%',
-    textAlign: Ti.UI.TEXT_ALIGNMENT_RIGHT,	
-}
-
-"#optimal": {
-	width:'10%',
-	height:'5%',
-    color: 'gray',
-    top:20,
     right:'60%',
-    textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,	
+    textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
 }
 
 "#info": {
-	width:'10%',
-	height:'5%',
+	width:'80%',
+    top:  '15%',
+    color: 'black',
     color: 'gray',
-    top:20,
-    right:'80%',
-    textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT	
-}
-
-"#finder": {
-	layout: 'horizontal',
-	top: '10%',
-	width: '50%'
-}
-
-".input": {
-	height: "50",
-	width: "100"
+    textAlign: 'center',
+    height: 'auto',
+    font: { fontSize: 120 },
+    minimumFontSize: 8
 }
 
 "#picker": {
-	top: '25%',
-	width: '80%'
+	top: '40%',
+	width: '80%',
+	selectionIndicator: true
 }
 
 "#button": {
-	top: '20%',
+	top: '80%',
 	right: '50%',
-    width: 30,
-    height: 30,
-    backgroundImage: "raised-button.png"
+    width: 80,
+    height: 80,
+    backgroundImage: "thin-check.png"
 }
 
 "#definition": {
 	textAlign: Ti.UI.TEXT_ALIGNMENT_RIGHT,
-	width: '50%'
+	top:  '67%',
+	width:'50%',
+	visible: 'false'
 }
