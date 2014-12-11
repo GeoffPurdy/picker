@@ -51,10 +51,13 @@ function doClick(e){
         } 
         else {
           Ti.API.info("good API call");
-          // FIXME check existence of each element before invoking any methods on it
-          $.definition.text = doc.getElementsByTagName("entry").item(0).getAttribute("id") + 
-            ": " + doc.getElementsByTagName("pr").item(0).text +
-             " " + doc.getElementsByTagName("dt").item(0).text;
+          // TODO clean this up, but be sure not to call methods on null if attribute doesn't exist
+          $.definition.text = "";
+          if( doc.getElementsByTagName("entry").item(0).hasAttribute("id") ) { $.definition.text += doc.getElementsByTagName("entry").item(0).getAttribute("id"); } 
+          $.definition.text +=  ": ";
+          if( doc.getElementsByTagName("pr") ) { $.definition.text += doc.getElementsByTagName("pr").item(0).text; }
+          $.definition.text +=  ": ";
+          if( doc.getElementsByTagName("dt") ) { $.definition.text += doc.getElementsByTagName("dt").item(0).text; }
           $.definition.text = $.definition.text.replace(/\[.*?\]/g,'');
         }
     },
